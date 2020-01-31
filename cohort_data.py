@@ -53,23 +53,23 @@ def sort_by_cohort(filename):
 
     for line in cohort_info:
         order = line.split('|')
-        if order[-1] != 'I' or 'G':
-            full_name = order[0] + ' ' + order[1]
-            if order[-1] == 'Winter 2016':
-                winter_16.append(full_name)
-            if order[-1] == 'Spring 2016':
-                spring_16.append(full_name)
-            if order[-1] == 'Summer 2016':
-                summer_16.append(full_name)
-            if order[-1] == 'Fall 2015':
-                fall_15.append(full_name)
-            if order[-1] = 'G':
-                ghosts.append(full_name)
-    all_students = [winter_16, spring_16, summer_16, fall_15, ghosts]   
+        full_name = order[0] + ' ' + order[1]
+        if order[-1] == 'G':
+            ghosts.append(full_name)
+        if order[-1] == 'Winter 2016':
+            winter_16.append(full_name)
+        if order[-1] == 'Spring 2016':
+            spring_16.append(full_name)
+        if order[-1] == 'Summer 2016':
+            summer_16.append(full_name)
+        if order[-1] == 'Fall 2015':
+            fall_15.append(full_name)
+
+    #all_students = [winter_16, spring_16, summer_16, fall_15, ghosts]   
 
     cohort_info.close() 
 
-    return all_students
+    return winter_16
 
 
 def hogwarts_by_house(filename):
