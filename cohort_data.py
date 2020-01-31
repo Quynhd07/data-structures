@@ -1,6 +1,5 @@
 """Functions to parse a file containing student data."""
-
-#cohort_info = open("cohort_data.txt")
+# cohort_info = open("cohort_data.txt")
 
 def unique_houses(filename):
     """TODO: Return a set of student houses.
@@ -52,22 +51,22 @@ def sort_by_cohort(filename):
     ghosts = []
 
     for line in cohort_info:
-        order = line.split('|') #need to strip /n
+        order = line.split('|')
         print(order)
         full_name = order[0] + ' ' + order[1]
         print(full_name)
-        if order[-1] == 'G':
-            ghosts.append(full_name)
-        if order[-1] == 'Winter 2016':
+        if order[-1] == 'G/n':
+            ghosts.append(full_name)   #need to strip /n
+        if order[-1] == 'Winter 2016/n':
             winter_16.append(full_name)
-        if order[-1] == 'Spring 2016':
+        if order[-1] == 'Spring 2016/n':
             spring_16.append(full_name)
-        if order[-1] == 'Summer 2016':
+        if order[-1] == 'Summer 2016/n':
             summer_16.append(full_name)
-        if order[-1] == 'Fall 2015':
+        if order[-1] == 'Fall 2015/n':
             fall_15.append(full_name)
 
-    all_students = [winter_16, spring_16, summer_16, fall_15, ghosts]   
+    all_students = [winter_16 + spring_16 + summer_16 + fall_15 + ghosts]   
 
     cohort_info.close() 
 
