@@ -52,21 +52,26 @@ def sort_by_cohort(filename):
 
     for line in cohort_info:
         order = line.split('|')
-        print(order)
-        full_name = order[0] + ' ' + order[1]
-        print(full_name)
-        if order[-1] == 'G/n':
-            ghosts.append(full_name)   #need to strip /n
-        if order[-1] == 'Winter 2016/n':
-            winter_16.append(full_name)
-        if order[-1] == 'Spring 2016/n':
-            spring_16.append(full_name)
-        if order[-1] == 'Summer 2016/n':
-            summer_16.append(full_name)
-        if order[-1] == 'Fall 2015/n':
-            fall_15.append(full_name)
+        #print(order)
+        if order[-1] != 'I\n':
+            full_name = order[0] + ' ' + order[1]
+            name_list = []
+            name_list.append(full_name)
+            for name in name_list:
+                #print(full_name)
+                if order[-1] == 'G\n':
+                    ghosts.append(full_name)
+                #print(ghosts)        
+                if order[-1] == 'Winter 2016\n':
+                    winter_16.append(full_name)
+                if order[-1] =='Spring 2016\n':
+                    spring_16.append(full_name)
+                if order[-1] == 'Summer 2016\n':
+                    summer_16.append(full_name)
+                if order[-1] == 'Fall 2015\n':
+                    fall_15.append(full_name)
 
-    all_students = [winter_16 + spring_16 + summer_16 + fall_15 + ghosts]   
+    all_students = [fall_15] + [winter_16] + [spring_16] + [summer_16] + [ghosts]
 
     cohort_info.close() 
 
