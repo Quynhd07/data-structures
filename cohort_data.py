@@ -52,8 +52,10 @@ def sort_by_cohort(filename):
     ghosts = []
 
     for line in cohort_info:
-        order = line.split('|')
+        order = line.split('|') #need to strip /n
+        print(order)
         full_name = order[0] + ' ' + order[1]
+        print(full_name)
         if order[-1] == 'G':
             ghosts.append(full_name)
         if order[-1] == 'Winter 2016':
@@ -65,11 +67,11 @@ def sort_by_cohort(filename):
         if order[-1] == 'Fall 2015':
             fall_15.append(full_name)
 
-    #all_students = [winter_16, spring_16, summer_16, fall_15, ghosts]   
+    all_students = [winter_16, spring_16, summer_16, fall_15, ghosts]   
 
     cohort_info.close() 
 
-    return winter_16
+    return all_students
 
 
 def hogwarts_by_house(filename):
